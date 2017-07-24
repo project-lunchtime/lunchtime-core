@@ -1,0 +1,46 @@
+import org.apache.tools.ant.filters.*
+
+group 'app.lunchtime'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.flywaydb.flyway'
+
+sourceCompatibility = 1.8
+
+processResources {
+    filter ReplaceTokens, tokens: [
+            "application.version": project.property("version")
+    ]
+}
+
+buildscript {
+    ext {
+        springBootVersion = '2.0.0.M2'
+        flywayVersion = '4.2.0'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.flywaydb:flyway-gradle-plugin:${flywayVersion}")
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
