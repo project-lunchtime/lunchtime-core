@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-open class LunchtimeCoreApplication
+open class Application
 
 fun main(args: Array<String>) {
-    runApplication<LunchtimeCoreApplication>(*args)
+    runApplication<Application>(*args)
 }
