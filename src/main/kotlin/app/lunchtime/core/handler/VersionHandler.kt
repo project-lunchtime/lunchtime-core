@@ -1,6 +1,7 @@
-package app.lunchtime.core.controller
+package app.lunchtime.core.handler
 
-import org.springframework.beans.factory.annotation.Value
+import app.lunchtime.core.AppVersion
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.reactive.function.server.ServerResponse.ok
@@ -10,8 +11,8 @@ import reactor.core.publisher.Mono
 @Component
 class VersionHandler {
 
-    @Value("\${application.version}")
-    lateinit var appVersion: String
+    @Autowired
+    lateinit var appVersion : AppVersion
 
     fun appVersion(request: ServerRequest) =
         ok().body(Mono.just(appVersion))

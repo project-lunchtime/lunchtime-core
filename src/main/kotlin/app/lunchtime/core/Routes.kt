@@ -1,6 +1,6 @@
 package app.lunchtime.core
 
-import app.lunchtime.core.controller.VersionHandler
+import app.lunchtime.core.handler.VersionHandler
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.MediaType
