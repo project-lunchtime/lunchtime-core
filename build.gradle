@@ -57,6 +57,7 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
     compile("org.springframework.data:spring-data-mongodb:2.1.0.M1")
+    compile("org.mongodb:mongodb-driver-reactivestreams")
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
